@@ -1,0 +1,53 @@
+Country,Continent,Coffee_Consumption_Per_Capita_KG,Daily_Coffee_Cups,Happiness_Score
+Luxembourg,Europe,20.53,5.31,7.122
+Finland,Europe,14.58,3.77,7.736
+Sweden,Europe,10.00,2.59,7.345
+Norway,Europe,9.93,2.57,7.262
+Austria,Europe,7.86,2.03,6.810
+Denmark,Europe,7.90,2.04,7.521
+Switzerland,Europe,7.23,1.87,6.935
+Netherlands,Europe,6.91,1.79,7.306
+Greece,Europe,6.61,1.71,5.776
+Germany,Europe,6.25,1.61,6.753
+Canada,North America,6.08,1.57,6.803
+Belgium,Europe,6.08,1.57,6.910
+France,Europe,5.74,1.48,6.593
+Slovenia,Europe,5.77,1.49,6.792
+Italy,Europe,5.57,1.44,6.415
+Brazil,South America,6.10,1.58,6.494
+Cyprus,Europe,5.48,1.42,5.942
+Portugal,Europe,5.45,1.41,6.013
+Croatia,Europe,5.70,1.47,5.870
+Estonia,Europe,5.58,1.44,6.417
+Lithuania,Europe,5.54,1.43,6.829
+Czech Republic,Europe,4.82,1.25,6.775
+United States,North America,4.70,1.22,6.724
+Australia,Oceania,4.40,1.14,6.974
+Ireland,Europe,4.39,1.13,6.889
+Spain,Europe,4.11,1.06,6.466
+Costa Rica,North America,4.05,1.05,7.274
+Japan,Asia,3.58,0.93,6.147
+Poland,Europe,3.66,0.95,6.673
+Latvia,Europe,3.74,0.97,6.207
+Bulgaria,Europe,3.80,0.98,5.554
+South Korea,Asia,2.86,0.74,6.038
+Romania,Europe,3.34,0.86,6.563
+Hungary,Europe,2.47,0.64,5.915
+Venezuela,South America,2.65,0.69,5.683
+Slovakia,Europe,2.35,0.61,6.221
+Colombia,South America,2.33,0.60,6.004
+Russia,Europe,1.92,0.50,5.945
+Vietnam,Asia,1.61,0.42,6.352
+Philippines,Asia,1.66,0.43,6.107
+Ethiopia,Africa,1.79,0.46,3.898
+Turkey,Asia,1.20,0.31,5.262
+Thailand,Asia,1.17,0.30,6.222
+Morocco,Africa,1.19,0.31,4.622
+Mexico,North America,1.13,0.29,6.979
+Indonesia,Asia,1.04,0.27,5.617
+Argentina,South America,0.81,0.21,6.397
+Egypt,Africa,0.66,0.17,3.817
+South Africa,Africa,0.65,0.17,5.213
+Peru,South America,0.44,0.11,5.947
+Uganda,Africa,0.31,0.08,4.461
+India,Asia,0.06,0.02,4.389 

@@ -1,0 +1,60 @@
+Coffee Happiness Analysis - Distribution Report
+==========================================
+
+This analysis examines the relationship between coffee consumption and happiness scores across countries.
+
+Criteria:
+- High Coffee Consumption: ≥1.0 kg per capita/year
+- High Happiness Score: ≥6.0 on the happiness scale
+
+Distribution Analysis:
+--------------------
+1. Countries with Both High Coffee & High Happiness:
+   - These countries represent the "sweet spot" where high coffee consumption
+     and high happiness levels intersect
+   - Percentage: {both_pct:.1f}% of all countries
+
+2. Countries with High Coffee Only:
+   - These countries have high coffee consumption (≥1.0 kg) but lower happiness scores (<6.0)
+   - Percentage: {coffee_only_pct:.1f}% of all countries
+
+3. Countries with High Happiness Only:
+   - These countries achieve high happiness scores (≥6.0) despite lower coffee consumption (<1.0 kg)
+   - Percentage: {happiness_only_pct:.1f}% of all countries
+
+4. Neither High Coffee nor High Happiness:
+   - Remaining countries that don't meet either threshold
+   - Percentage: {100 - (both_pct + coffee_only_pct + happiness_only_pct):.1f}% of all countries
+
+Coffee Consumption Categories:
+---------------------------
+- Exceptionally High: ≥14.0 kg per capita/year
+- Very High: ≥6.0 kg per capita/year
+- High: ≥3.0 kg per capita/year
+- Moderate: ≥1.0 kg per capita/year
+- Low: ≥0.5 kg per capita/year
+- Very Low: <0.5 kg per capita/year
+
+Key Insights:
+------------
+- The analysis uses a moderate threshold of 1.0 kg per capita/year for coffee consumption,
+  allowing us to capture a broader range of coffee-drinking nations
+- The happiness threshold of 6.0 represents a significantly positive level of
+  national happiness on the scale
+- The overlap between coffee consumption and happiness suggests potential cultural,
+  economic, or lifestyle factors that might influence both metrics
+- Many countries achieve high happiness without significant coffee consumption,
+  indicating that coffee is not the sole contributor to national happiness
+- Some high coffee-consuming countries don't report high happiness scores,
+  suggesting other factors play important roles in determining happiness levels
+
+Note: This analysis is based on the latest available data and should be interpreted
+considering various cultural, economic, and social factors that influence both
+coffee consumption patterns and happiness scores.
+
+Sources for Data:
+----------------
+Coffee consumption: https://cafely.com/blogs/research/which-country-consumes-the-most-coffee?srsltid=AfmBOop1soKql0EsXfICurn7mcJHnpQkht6sjaTHc4VBP6nZY8TLfjKU
+Happiness score: https://data.worldhappiness.report/table
+
+© 2025 Batloon 
