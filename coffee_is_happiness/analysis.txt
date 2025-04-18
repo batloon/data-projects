@@ -4,7 +4,7 @@ Coffee Happiness Analysis - Distribution Report
 This analysis examines the relationship between coffee consumption and happiness scores across countries.
 
 Criteria:
-- High Coffee Consumption: ≥1.0 kg per capita/year
+- High Coffee Consumption: ≥2.0 kg per capita/year
 - High Happiness Score: ≥6.0 on the happiness scale
 
 Distribution Analysis:
@@ -15,11 +15,11 @@ Distribution Analysis:
    - Percentage: {both_pct:.1f}% of all countries
 
 2. Countries with High Coffee Only:
-   - These countries have high coffee consumption (≥1.0 kg) but lower happiness scores (<6.0)
+   - These countries have high coffee consumption (≥2.0 kg) but lower happiness scores (<6.0)
    - Percentage: {coffee_only_pct:.1f}% of all countries
 
 3. Countries with High Happiness Only:
-   - These countries achieve high happiness scores (≥6.0) despite lower coffee consumption (<1.0 kg)
+   - These countries achieve high happiness scores (≥6.0) despite lower coffee consumption (<2.0 kg)
    - Percentage: {happiness_only_pct:.1f}% of all countries
 
 4. Neither High Coffee nor High Happiness:
@@ -37,7 +37,7 @@ Coffee Consumption Categories:
 
 Key Insights:
 ------------
-- The analysis uses a moderate threshold of 1.0 kg per capita/year for coffee consumption,
+- The analysis uses a threshold of 2.0 kg per capita/year for coffee consumption,
   allowing us to capture a broader range of coffee-drinking nations
 - The happiness threshold of 6.0 represents a significantly positive level of
   national happiness on the scale
