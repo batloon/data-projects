@@ -67,22 +67,19 @@ For detailed findings, please refer to `reports/analysis.txt`.
 
 ## Data Sources
 
-- Coffee consumption data: https://cafely.com/blogs/research/which-country-consumes-the-most-coffee?srsltid=AfmBOop1soKql0EsXfICurn7mcJHnpQkht6sjaTHc4VBP6nZY8TLfjKU
-- Happiness scores: https://data.worldhappiness.report/table
+- [Coffee consumption data](https://cafely.com/blogs/research/which-country-consumes-the-most-coffee?srsltid=AfmBOop1soKql0EsXfICurn7mcJHnpQkht6sjaTHc4VBP6nZY8TLfjKU)
+- [Happiness scores](https://data.worldhappiness.report/table)
 - Geographic data: Natural Earth
 
 ## Contributing
 
-This is a proprietary project by Batloon. For any queries or suggestions, please contact our data science team.
+This is a proprietary project by Batloon. For any queries or project requests, please contact our team at info@batloon.com.
 
 ## About Batloon
 
 Batloon transforms complex data into compelling visual stories. From technology trends to societal shifts, we help you see the patterns that shape our world. Each visualization brings clarity to complexity, making data not just accessible, but unforgettable.
 
-Checkout more stories @ Batloon[https://www.batloon.com/]
+Checkout more stories @ [batloon.com](https://www.batloon.com/)
 ---
 
 *"Data Stories That Illuminate"* - Batloon
-
-## Copyright
-© 2025 Batloon. All rights reserved.
