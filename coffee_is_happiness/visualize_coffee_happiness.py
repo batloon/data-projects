@@ -17,12 +17,16 @@ import matplotlib.pyplot as plt
 from scipy import stats
 import os
 from config import *
+import numpy as np
 
 # Ensure output directories exist
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 # Read the data
 df = pd.read_csv(DATA_FILE)
+
+# Filter out countries with zero coffee consumption
+df = df[df['Coffee_Consumption_Per_Capita_KG'] > 0]
 
 # Create coffee consumption categories
 def get_coffee_category(consumption):
@@ -256,61 +260,127 @@ fig3.update_layout(
     width=MAP_WIDTH,
     height=MAP_HEIGHT,
     template='plotly_white',
-    showlegend=True,
-    legend=dict(
-        orientation='h',
-        yanchor='bottom',
-        y=-0.15,  # Moved further down
-        xanchor='center',
-        x=0.5,
-        bgcolor='rgba(255,255,255,0.8)',  # Semi-transparent white background
-        bordercolor='gray',
-        borderwidth=1
-    ),
-    margin=dict(r=50, l=50, t=100, b=150)  # Increased bottom margin for legend
+    margin=dict(r=50, l=50, t=80, b=50)
 )
-
 add_batloon_watermark(fig3)
 
 # Save the intersection map
 fig3.write_html(f'{OUTPUT_DIR}/intersection_map.html')
 
-# Print countries with high coffee consumption
-print("\nCountries with high coffee consumption (≥{:.2f} kg):".format(COFFEE_CONSUMPTION_THRESHOLD))
-high_coffee_countries = df[df['High_Coffee']].sort_values('Coffee_Consumption_Per_Capita_KG', ascending=False)
-for _, row in high_coffee_countries.iterrows():
-    print(f"{row['Country']}: {row['Coffee_Consumption_Per_Capita_KG']:.2f} kg/capita, Happiness: {row['Happiness_Score']:.2f}")
+# 4. Scatter Plot
+fig4 = go.Figure()
 
-# Print countries with high happiness score
-print("\nCountries with high happiness (≥{:.2f}):".format(HAPPINESS_SCORE_THRESHOLD))
-high_happiness_countries = df[df['High_Happiness']].sort_values('Happiness_Score', ascending=False)
-for _, row in high_happiness_countries.iterrows():
-    print(f"{row['Country']}: {row['Coffee_Consumption_Per_Capita_KG']:.2f} kg/capita, Happiness: {row['Happiness_Score']:.2f}")
+# Add scatter plot points
+fig4.add_trace(go.Scatter(
+    x=df['Coffee_Consumption_Per_Capita_KG'],
+    y=df['Happiness_Score'],
+    mode='markers',
+    marker=dict(
+        size=10,
+        color=df.apply(lambda x: COLORS['intersection'] if x['Intersection'] else 
+                      COLORS['coffee_only'] if x['High_Coffee'] else 
+                      COLORS['happiness_only'] if x['High_Happiness'] else 
+                      COLORS['base'], axis=1),
+        line=dict(width=1, color='black')
+    ),
+    text=df.apply(lambda x: f"{x['Country']}<br>Coffee: {x['Coffee_Consumption_Per_Capita_KG']:.2f} kg/capita<br>Happiness: {x['Happiness_Score']:.2f}", axis=1),
+    hoverinfo='text'
+))
 
-# Print analysis
-print("\nBatloon Coffee Happiness Analysis")
-print("================================")
-print("\nAnalysis Summary:")
-print(f"Total countries in dataset: {len(df)}")
-print(f"Countries with high coffee consumption (≥{COFFEE_CONSUMPTION_THRESHOLD} kg): {df['High_Coffee'].sum()}")
-print(f"Countries with high happiness (≥{HAPPINESS_SCORE_THRESHOLD}): {df['High_Happiness'].sum()}")
-print(f"Countries with both: {df['Intersection'].sum()}")
-print(f"Intersection percentage: {intersection_pct:.1f}%")
+# Add trend line
+z = np.polyfit(df['Coffee_Consumption_Per_Capita_KG'], df['Happiness_Score'], 1)
+p = np.poly1d(z)
+fig4.add_trace(go.Scatter(
+    x=df['Coffee_Consumption_Per_Capita_KG'],
+    y=p(df['Coffee_Consumption_Per_Capita_KG']),
+    mode='lines',
+    line=dict(color='black', width=2, dash='dash'),
+    name='Trend Line'
+))
 
-# Print detailed list of intersection countries
-print("\nCountries with both high coffee consumption and high happiness:")
-intersection_countries = df[df['Intersection']].sort_values('Coffee_Consumption_Per_Capita_KG', ascending=False)
-for _, row in intersection_countries.iterrows():
-    print(f"{row['Country']}: {row['Coffee_Consumption_Per_Capita_KG']:.2f} kg/capita, Happiness: {row['Happiness_Score']:.2f}")
+# Calculate correlation coefficient
+correlation = df['Coffee_Consumption_Per_Capita_KG'].corr(df['Happiness_Score'])
 
-# Print countries with only high coffee consumption
-print("\nCountries with high coffee consumption only (not high happiness):")
-coffee_only_countries = df[df['High_Coffee'] & ~df['High_Happiness']].sort_values('Coffee_Consumption_Per_Capita_KG', ascending=False)
-for _, row in coffee_only_countries.iterrows():
-    print(f"{row['Country']}: {row['Coffee_Consumption_Per_Capita_KG']:.2f} kg/capita, Happiness: {row['Happiness_Score']:.2f}")
+# Update layout for scatter plot
+fig4.update_layout(
+    title=dict(
+        text=f'Coffee Consumption vs Happiness Score<br>Correlation: {correlation:.3f}',
+        x=0.5,
+        y=0.95,
+        font=dict(size=20)
+    ),
+    xaxis=dict(
+        title='Coffee Consumption Per Capita (kg/year)',
+        showgrid=True,
+        gridwidth=1,
+        gridcolor='lightgray'
+    ),
+    yaxis=dict(
+        title='Happiness Score',
+        showgrid=True,
+        gridwidth=1,
+        gridcolor='lightgray'
+    ),
+    width=MAP_WIDTH,
+    height=MAP_HEIGHT,
+    template='plotly_white',
+    margin=dict(r=50, l=50, t=80, b=50)
+)
+add_batloon_watermark(fig4)
 
-# Print countries with only high happiness
-print("\nCountries with high happiness only (not high coffee consumption):")
-happiness_only_countries = df[~df['High_Coffee'] & df['High_Happiness']].sort_values('Happiness_Score', ascending=False)
-for _, row in happiness_only_countries.iterrows():
-    print(f"{row['Country']}: {row['Coffee_Consumption_Per_Capita_KG']:.2f} kg/capita, Happiness: {row['Happiness_Score']:.2f}")
+# Save the scatter plot
+fig4.write_html(f'{OUTPUT_DIR}/scatter_plot.html')
+
+# Generate statistical analysis
+analysis = f"""Coffee Happiness Analysis
+=====================
+
+Data Overview:
+-------------
+Total Countries: {len(df)}
+Countries with High Coffee Consumption (≥{COFFEE_CONSUMPTION_THRESHOLD} kg/capita): {df['High_Coffee'].sum()}
+Countries with High Happiness (≥{HAPPINESS_SCORE_THRESHOLD}): {df['High_Happiness'].sum()}
+Countries with Both High Coffee and Happiness: {df['Intersection'].sum()}
+
+Distribution:
+------------
+High Coffee Consumption Only: {coffee_only_pct:.1f}%
+High Happiness Only: {happiness_only_pct:.1f}%
+Both High: {both_pct:.1f}%
+Neither High: {100 - (coffee_only_pct + happiness_only_pct + both_pct):.1f}%
+
+Correlation Analysis:
+-------------------
+Correlation Coefficient: {correlation:.3f}
+
+Top 10 Countries by Coffee Consumption:
+------------------------------------
+{df.nlargest(10, 'Coffee_Consumption_Per_Capita_KG')[['Country', 'Coffee_Consumption_Per_Capita_KG', 'Happiness_Score']].to_string()}
+
+Top 10 Countries by Happiness Score:
+---------------------------------
+{df.nlargest(10, 'Happiness_Score')[['Country', 'Happiness_Score', 'Coffee_Consumption_Per_Capita_KG']].to_string()}
+
+Countries with Both High Coffee and Happiness:
+-------------------------------------------
+{df[df['Intersection']][['Country', 'Coffee_Consumption_Per_Capita_KG', 'Happiness_Score']].to_string()}
+
+Countries by Category:
+-------------------
+High Coffee Consumption Only (≥{COFFEE_CONSUMPTION_THRESHOLD} kg/capita, <{HAPPINESS_SCORE_THRESHOLD} happiness):
+{df[df['High_Coffee'] & ~df['High_Happiness']][['Country', 'Coffee_Consumption_Per_Capita_KG', 'Happiness_Score']].to_string()}
+
+High Happiness Only (≥{HAPPINESS_SCORE_THRESHOLD} happiness, <{COFFEE_CONSUMPTION_THRESHOLD} kg/capita):
+{df[~df['High_Coffee'] & df['High_Happiness']][['Country', 'Coffee_Consumption_Per_Capita_KG', 'Happiness_Score']].to_string()}
+
+Neither High (both <{COFFEE_CONSUMPTION_THRESHOLD} kg/capita and <{HAPPINESS_SCORE_THRESHOLD} happiness):
+{df[~df['High_Coffee'] & ~df['High_Happiness']][['Country', 'Coffee_Consumption_Per_Capita_KG', 'Happiness_Score']].to_string()}
+
+"""
+
+# Save the analysis
+with open(f'{OUTPUT_DIR}/analysis.txt', 'w') as f:
+    f.write(analysis)
+
+# Print the analysis to the console
+print(analysis)

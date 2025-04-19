@@ -1,60 +1,88 @@
-# Coffee and Happiness Analysis
-A Batloon project exploring the relationship between coffee consumption and happiness across nations.
+# Coffee Happiness Analysis
+
+A data science project exploring the relationship between coffee consumption and happiness scores across countries.
 
 ## Overview
-This project analyzes the correlation between coffee consumption per capita and happiness scores across different countries. It generates interactive visualizations to explore potential relationships between these metrics.
 
-## Features
-- Interactive world maps showing:
-  - Coffee consumption distribution (≥1.0 kg per capita/year threshold)
-  - Happiness score distribution (≥6.0 threshold)
-  - Combined analysis showing intersections between high coffee consumption and happiness
-- Detailed analysis report with distribution statistics
-- Configurable thresholds and visualization parameters
-- Beautiful, interactive Plotly visualizations
+This project analyzes the correlation between coffee consumption per capita and happiness scores across different countries. The analysis includes:
 
-## Project Structure
-```
-coffee_is_happiness/
-├── config.py              # Configuration settings
-├── visualize_coffee_happiness.py  # Main visualization script
-├── analysis.txt          # Detailed analysis report
-├── data/                 # Data directory
-│   └── coffee_happiness_correlation.csv
-└── reports/             # Generated visualizations
-    ├── coffee_consumption_map.html
-    ├── happiness_map.html
-    └── intersection_map.html
-```
+- World maps showing coffee consumption and happiness score distributions
+- Intersection analysis of countries with both high coffee consumption and happiness
+- Statistical correlation analysis
+- Interactive visualizations
 
-## Configuration
-All major parameters are configurable through `config.py`:
-- Coffee consumption thresholds
-- Happiness score thresholds
-- Color schemes
-- Coffee consumption categories
-- Output settings
+## Data
 
-## Recent Updates
-- Improved visualization layout with bottom-aligned legends
-- Simplified color schemes for better clarity
-- Added configurable thresholds for analysis
-- Enhanced map interactivity and information display
-- Updated analysis with new moderate coffee consumption threshold (1.0 kg)
-- Improved visual appeal with custom color schemes
+The dataset (`data/coffee_happiness_correlation.csv`) contains:
+- Country names
+- Happiness scores (0-10 scale)
+- Coffee consumption per capita (kg/year)
+
+## Visualizations
+
+The project generates several interactive visualizations:
+
+1. **Coffee Consumption Map**: Shows coffee consumption per capita across countries
+2. **Happiness Score Map**: Displays happiness scores across countries
+3. **Intersection Map**: Highlights countries with both high coffee consumption and happiness
+4. **Scatter Plot**: Visualizes the correlation between coffee consumption and happiness
+
+All visualizations are saved as interactive HTML files in the `reports` directory.
+
+## Analysis
+
+The analysis includes:
+- Statistical correlation between coffee consumption and happiness
+- Distribution of countries across different coffee consumption and happiness categories
+- Top countries by coffee consumption and happiness scores
+- Detailed breakdown of countries with high coffee consumption and/or happiness
+
+## Requirements
+
+- Python 3.8+
+- Required packages (see `requirements.txt`):
+  - pandas
+  - plotly
+  - seaborn
+  - matplotlib
+  - scipy
+  - numpy
+
+## Installation
+
+1. Clone the repository
+2. Create a virtual environment:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
 ## Usage
+
+Run the analysis script:
 ```bash
 python visualize_coffee_happiness.py
 ```
-This will generate three interactive HTML maps in the reports directory.
 
-## Dependencies
-- pandas
-- plotly
-- seaborn
-- matplotlib
-- scipy
+This will generate:
+- Interactive HTML visualizations in the `reports` directory
+- Statistical analysis in `reports/analysis.txt`
+
+## Results
+
+The analysis reveals:
+- Correlation between coffee consumption and happiness scores
+- Countries with both high coffee consumption and happiness
+- Regional patterns in coffee consumption and happiness
+- Statistical significance of the relationship
+
+## License
+
+Copyright (c) 2025 Batloon. All rights reserved.
 
 ## Key Findings
 
@@ -65,12 +93,6 @@ This will generate three interactive HTML maps in the reports directory.
 
 For detailed findings, please refer to `reports/analysis.txt`.
 
-## Data Sources
-
-- [Coffee consumption data](https://cafely.com/blogs/research/which-country-consumes-the-most-coffee?srsltid=AfmBOop1soKql0EsXfICurn7mcJHnpQkht6sjaTHc4VBP6nZY8TLfjKU)
-- [Happiness scores](https://data.worldhappiness.report/table)
-- Geographic data: Natural Earth
-
 ## Contributing
 
 This is a proprietary project by Batloon. For any queries or project requests, please contact our team at info@batloon.com.
@@ -79,7 +101,5 @@ This is a proprietary project by Batloon. For any queries or project requests, p
 
 Batloon transforms complex data into compelling visual stories. From technology trends to societal shifts, we help you see the patterns that shape our world. Each visualization brings clarity to complexity, making data not just accessible, but unforgettable.
 
-Checkout more stories @ [batloon.com](https://www.batloon.com/)
----
 
-*"Data Stories That Illuminate"* - Batloon
+*"Data Stories That Illuminate"* - Checkout more stories @ [batloon.com](https://www.batloon.com/)
