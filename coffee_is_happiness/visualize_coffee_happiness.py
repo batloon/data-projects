@@ -275,6 +275,18 @@ add_batloon_watermark(fig3)
 # Save the intersection map
 fig3.write_html(f'{OUTPUT_DIR}/intersection_map.html')
 
+# Print countries with high coffee consumption
+print("\nCountries with high coffee consumption (≥{:.2f} kg):".format(COFFEE_CONSUMPTION_THRESHOLD))
+high_coffee_countries = df[df['High_Coffee']].sort_values('Coffee_Consumption_Per_Capita_KG', ascending=False)
+for _, row in high_coffee_countries.iterrows():
+    print(f"{row['Country']}: {row['Coffee_Consumption_Per_Capita_KG']:.2f} kg/capita, Happiness: {row['Happiness_Score']:.2f}")
+
+# Print countries with high happiness score
+print("\nCountries with high happiness (≥{:.2f}):".format(HAPPINESS_SCORE_THRESHOLD))
+high_happiness_countries = df[df['High_Happiness']].sort_values('Happiness_Score', ascending=False)
+for _, row in high_happiness_countries.iterrows():
+    print(f"{row['Country']}: {row['Coffee_Consumption_Per_Capita_KG']:.2f} kg/capita, Happiness: {row['Happiness_Score']:.2f}")
+
 # Print analysis
 print("\nBatloon Coffee Happiness Analysis")
 print("================================")
@@ -289,4 +301,16 @@ print(f"Intersection percentage: {intersection_pct:.1f}%")
 print("\nCountries with both high coffee consumption and high happiness:")
 intersection_countries = df[df['Intersection']].sort_values('Coffee_Consumption_Per_Capita_KG', ascending=False)
 for _, row in intersection_countries.iterrows():
-    print(f"{row['Country']}: {row['Coffee_Consumption_Per_Capita_KG']:.2f} kg/capita, Happiness: {row['Happiness_Score']:.2f}") 
+    print(f"{row['Country']}: {row['Coffee_Consumption_Per_Capita_KG']:.2f} kg/capita, Happiness: {row['Happiness_Score']:.2f}")
+
+# Print countries with only high coffee consumption
+print("\nCountries with high coffee consumption only (not high happiness):")
+coffee_only_countries = df[df['High_Coffee'] & ~df['High_Happiness']].sort_values('Coffee_Consumption_Per_Capita_KG', ascending=False)
+for _, row in coffee_only_countries.iterrows():
+    print(f"{row['Country']}: {row['Coffee_Consumption_Per_Capita_KG']:.2f} kg/capita, Happiness: {row['Happiness_Score']:.2f}")
+
+# Print countries with only high happiness
+print("\nCountries with high happiness only (not high coffee consumption):")
+happiness_only_countries = df[~df['High_Coffee'] & df['High_Happiness']].sort_values('Happiness_Score', ascending=False)
+for _, row in happiness_only_countries.iterrows():
+    print(f"{row['Country']}: {row['Coffee_Consumption_Per_Capita_KG']:.2f} kg/capita, Happiness: {row['Happiness_Score']:.2f}")
