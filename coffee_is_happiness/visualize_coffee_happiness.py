@@ -176,7 +176,7 @@ fig3.add_trace(go.Scatter(
     y=[None],
     mode='markers',
     marker=dict(size=10, color=COLORS['coffee_only']),
-    name='High Coffee Only',
+    name='High Coffee Consumption Only',
     showlegend=True
 ))
 
@@ -239,7 +239,7 @@ fig3.add_trace(go.Choropleth(
 fig3.update_layout(
     title=dict(
         text=f'Coffee Consumption Per Capita (≥{COFFEE_CONSUMPTION_THRESHOLD} kg) and Happiness Score (≥{HAPPINESS_SCORE_THRESHOLD}) Distribution<br>' +
-             f'Both: {both_pct:.1f}% | High Coffee Only: {coffee_only_pct:.1f}% | High Happiness Only: {happiness_only_pct:.1f}%',
+             f'Both: {both_pct:.1f}% | High Coffee Consumption Only: {coffee_only_pct:.1f}% | High Happiness Only: {happiness_only_pct:.1f}%',
         x=0.5,
         y=0.95,
         font=dict(size=20)

@@ -16,12 +16,11 @@ COFFEE_CATEGORIES = {
     'Very Low': 0.0
 }
 
-# Visualization colors
 COLORS = {
-    'coffee_only': '#FFA500',    # Orange
-    'happiness_only': '#006400', # Dark Green
-    'intersection': '#8B4513',   # Brown
-    'base': '#EAEAEA'           # Light Gray
+    'coffee_only': '#F9D976',     # Soft Yellow (Sunflower Cream)
+    'happiness_only': '#87CEFA',  # Light Sky Blue
+    'intersection': '#B4E197',    # Fresh Leafy Green
+    'base': '#F7F7F7'             # Very Light Gray
 }
 
 # Output settings
