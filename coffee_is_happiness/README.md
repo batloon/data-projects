@@ -1,4 +1,4 @@
-# Coffee Happiness Analysis by [Batloon](https://www.batloon.com/)
+# [Coffee Happiness Analysis by Batloon](https://www.batloon.com/articles/the-world-s-happiest-countries-also-love-their-coffee)
 
 A data science project exploring the relationship between coffee consumption and happiness scores across countries.
 
