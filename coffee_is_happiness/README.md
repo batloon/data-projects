@@ -1,4 +1,4 @@
-# Coffee Happiness Analysis
+# Coffee Happiness Analysis by [Batloon](https://www.batloon.com/)
 
 A data science project exploring the relationship between coffee consumption and happiness scores across countries.
 
