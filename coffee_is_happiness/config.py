@@ -3,7 +3,7 @@ Configuration settings for the Coffee Happiness Analysis
 """
 
 # Threshold configurations
-COFFEE_CONSUMPTION_THRESHOLD = 2 # kg per capita/year
+COFFEE_CONSUMPTION_THRESHOLD = 2.0 # kg per capita/year
 HAPPINESS_SCORE_THRESHOLD = 6.0     # happiness index
 
 # Coffee consumption categories (in kg per capita/year)

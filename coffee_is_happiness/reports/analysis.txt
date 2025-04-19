@@ -4,7 +4,7 @@ Coffee Happiness Analysis
 Data Overview:
 -------------
 Total Countries: 141
-Countries with High Coffee Consumption (≥2 kg/capita): 72
+Countries with High Coffee Consumption (≥2.0 kg/capita): 72
 Countries with High Happiness (≥6.0): 60
 Countries with Both High Coffee and Happiness: 50
 
@@ -103,7 +103,7 @@ Countries with Both High Coffee and Happiness:
 
 Countries by Category:
 -------------------
-High Coffee Consumption Only (≥2 kg/capita, <6.0 happiness):
+High Coffee Consumption Only (≥2.0 kg/capita, <6.0 happiness):
                  Country  Coffee_Consumption_Per_Capita_KG  Happiness_Score
 62              Honduras                              2.98            5.964
 66                Cyprus                              5.48            5.942
@@ -128,7 +128,7 @@ High Coffee Consumption Only (≥2 kg/capita, <6.0 happiness):
 141             Botswana                              2.07            3.438
 144              Lebanon                              5.50            3.188
 
-High Happiness Only (≥6.0 happiness, <2 kg/capita):
+High Happiness Only (≥6.0 happiness, <2.0 kg/capita):
                      Country  Coffee_Consumption_Per_Capita_KG  Happiness_Score
 9                     Mexico                              1.13            6.979
 20      United Arab Emirates                              1.59            6.759
@@ -141,7 +141,7 @@ High Happiness Only (≥6.0 happiness, <2 kg/capita):
 53                  Paraguay                              0.67            6.172
 56               Philippines                              1.66            6.107
 
-Neither High (both <2 kg/capita and <6.0 happiness):
+Neither High (both <2.0 kg/capita and <6.0 happiness):
                     Country  Coffee_Consumption_Per_Capita_KG  Happiness_Score
 61                  Ecuador                             0.800            5.965
 63                 Malaysia                             0.020            5.955
