@@ -80,10 +80,6 @@ The analysis reveals:
 - Regional patterns in coffee consumption and happiness
 - Statistical significance of the relationship
 
-## License
-
-Copyright (c) 2025 Batloon. All rights reserved.
-
 ## Key Findings
 
 - Strong positive correlation between coffee consumption and happiness scores
@@ -91,7 +87,7 @@ Copyright (c) 2025 Batloon. All rights reserved.
 - Clear regional and economic patterns in coffee consumption
 - Interesting outliers providing cultural insights
 
-For detailed findings, please refer to `reports/analysis.txt`.
+For detailed findings and datasources, please refer to `reports/analysis.txt`.
 
 ## Contributing
 
