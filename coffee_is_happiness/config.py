@@ -3,7 +3,7 @@ Configuration settings for the Coffee Happiness Analysis
 """
 
 # Threshold configurations
-COFFEE_CONSUMPTION_THRESHOLD = 2.0 # kg per capita/year
+COFFEE_CONSUMPTION_THRESHOLD = 2.56 # kg per capita/year
 HAPPINESS_SCORE_THRESHOLD = 6.0     # happiness index
 
 # Coffee consumption categories (in kg per capita/year)
@@ -17,8 +17,8 @@ COFFEE_CATEGORIES = {
 }
 
 COLORS = {
-    'coffee_only': '#F9D976',     # Soft Yellow (Sunflower Cream)
-    'happiness_only': '#87CEFA',  # Light Sky Blue
+    'coffee_only': '#FDF3D7',     # Very Light Soft Yellow
+    'happiness_only': '#E1F0FB',  # Very Light Sky Blue
     'intersection': '#B4E197',    # Fresh Leafy Green
     'base': '#F7F7F7'             # Very Light Gray
 }

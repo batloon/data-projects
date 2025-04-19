@@ -4,16 +4,16 @@ Coffee Happiness Analysis
 Data Overview:
 -------------
 Total Countries: 141
-Countries with High Coffee Consumption (≥2.0 kg/capita): 72
+Countries with High Coffee Consumption (≥2.56 kg/capita): 57
 Countries with High Happiness (≥6.0): 60
-Countries with Both High Coffee and Happiness: 50
+Countries with Both High Coffee and Happiness: 43
 
 Distribution:
 ------------
-High Coffee Consumption Only: 15.6%
-High Happiness Only: 7.1%
-Both High: 35.5%
-Neither High: 41.8%
+High Coffee Consumption Only: 9.9%
+High Happiness Only: 12.1%
+Both High: 30.5%
+Neither High: 47.5%
 
 Correlation Analysis:
 -------------------
@@ -68,7 +68,6 @@ Countries with Both High Coffee and Happiness:
 16                 Austria                              7.86            6.810
 17                  Canada                              6.08            6.803
 18                Slovenia                              5.77            6.792
-19                 Czechia                              2.50            6.775
 21                 Germany                              6.25            6.753
 22          United Kingdom                              5.28            6.728
 23           United States                              4.70            6.724
@@ -77,7 +76,6 @@ Countries with Both High Coffee and Happiness:
 27                 Uruguay                              3.19            6.661
 29                  Kuwait                              9.08            6.629
 30                  Serbia                             13.50            6.606
-31            Saudi Arabia                              2.02            6.600
 32                  France                              5.74            6.593
 33               Singapore                              2.60            6.565
 34                 Romania                              3.34            6.563
@@ -86,12 +84,8 @@ Countries with Both High Coffee and Happiness:
 37                   Spain                              4.11            6.466
 38                 Estonia                              5.58            6.417
 39                   Italy                              5.57            6.415
-40                  Panama                              2.05            6.407
-41               Argentina                              2.32            6.397
 42              Kazakhstan                              4.85            6.378
-43               Guatemala                              2.13            6.362
 47                   Malta                              2.58            6.316
-49                Slovakia                              2.35            6.221
 50                  Latvia                              3.74            6.207
 51                    Oman                              4.78            6.197
 54                   Japan                              3.58            6.147
@@ -99,58 +93,61 @@ Countries with Both High Coffee and Happiness:
 57       Republic of Korea                              2.86            6.038
 58                 Bahrain                              7.52            6.030
 59                Portugal                              5.45            6.013
-60                Colombia                              2.33            6.004
 
 Countries by Category:
 -------------------
-High Coffee Consumption Only (≥2.0 kg/capita, <6.0 happiness):
+High Coffee Consumption Only (≥2.56 kg/capita, <6.0 happiness):
                  Country  Coffee_Consumption_Per_Capita_KG  Happiness_Score
 62              Honduras                              2.98            5.964
 66                Cyprus                              5.48            5.942
-68               Hungary                              2.47            5.915
 69   Trinidad and Tobago                              9.57            5.905
 71               Croatia                              3.80            5.870
-72               Jamaica                              2.50            5.870
-73               Bolivia                              2.25            5.868
-75    Dominican Republic                              2.00            5.846
 76              Mongolia                              7.21            5.833
 78                 Libya                              5.23            5.820
 79   Republic of Moldova                              9.29            5.819
 80                Greece                              6.61            5.776
 81             Venezuela                              2.65            5.683
 83               Algeria                              2.78            5.571
-84              Bulgaria                              2.30            5.554
 85       North Macedonia                              9.05            5.503
 86               Armenia                              8.07            5.494
 88               Albania                              4.51            5.411
-110              Ukraine                              2.25            4.680
-112              Tunisia                              2.20            4.552
-141             Botswana                              2.07            3.438
 144              Lebanon                              5.50            3.188
 
-High Happiness Only (≥6.0 happiness, <2.0 kg/capita):
+High Happiness Only (≥6.0 happiness, <2.56 kg/capita):
                      Country  Coffee_Consumption_Per_Capita_KG  Happiness_Score
 9                     Mexico                              1.13            6.979
+19                   Czechia                              2.50            6.775
 20      United Arab Emirates                              1.59            6.759
 26  Taiwan Province of China                              1.77            6.669
+31              Saudi Arabia                              2.02            6.600
+40                    Panama                              2.05            6.407
+41                 Argentina                              2.32            6.397
+43                 Guatemala                              2.13            6.362
 44                     Chile                              1.37            6.361
 45                  Viet Nam                              1.61            6.352
 46                 Nicaragua                              0.11            6.330
 48                  Thailand                              1.17            6.222
+49                  Slovakia                              2.35            6.221
 52                Uzbekistan                              0.88            6.193
 53                  Paraguay                              0.67            6.172
 56               Philippines                              1.66            6.107
+60                  Colombia                              2.33            6.004
 
-Neither High (both <2.0 kg/capita and <6.0 happiness):
+Neither High (both <2.56 kg/capita and <6.0 happiness):
                     Country  Coffee_Consumption_Per_Capita_KG  Happiness_Score
 61                  Ecuador                             0.800            5.965
 63                 Malaysia                             0.020            5.955
 64                     Peru                             0.440            5.947
 65       Russian Federation                             1.920            5.945
 67                    China                             0.180            5.921
+68                  Hungary                             2.470            5.915
+72                  Jamaica                             2.500            5.870
+73                  Bolivia                             2.250            5.868
 74               Kyrgyzstan                             1.360            5.858
+75       Dominican Republic                             2.000            5.846
 77                Mauritius                             0.620            5.832
 82                Indonesia                             1.040            5.617
+84                 Bulgaria                             2.300            5.554
 87   Hong Kong SAR of China                             1.300            5.491
 89               Tajikistan                             0.250            5.411
 90                  Georgia                             1.300            5.400
@@ -171,7 +168,9 @@ Neither High (both <2.0 kg/capita and <6.0 happiness):
 106                 Senegal                             0.730            4.856
 108                Pakistan                             0.010            4.768
 109                   Niger                             0.090            4.725
+110                 Ukraine                             2.250            4.680
 111                 Morocco                             1.190            4.622
+112                 Tunisia                             2.200            4.552
 113              Mauritania                             0.380            4.542
 114                   Kenya                             0.120            4.510
 115                  Uganda                             0.060            4.461
@@ -198,6 +197,7 @@ Neither High (both <2.0 kg/capita and <6.0 happiness):
 138                 Comoros                             0.490            3.754
 139                   Yemen                             0.590            3.561
 140                DR Congo                             0.660            3.469
+141                Botswana                             2.070            3.438
 142                Zimbabwe                             0.150            3.396
 143                  Malawi                             0.450            3.260
 145            Sierra Leone                             0.100            2.998
