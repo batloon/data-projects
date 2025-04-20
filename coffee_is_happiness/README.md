@@ -89,6 +89,9 @@ The analysis reveals:
 
 For detailed findings and datasources, please refer to `reports/analysis.txt`.
 
+## Datasources
+- [Complete gathered data with sources](https://docs.google.com/spreadsheets/d/1vRpLwm25Lp9K-2nKuGWBfbNAnOMjMXpyC30_71CxeWI/edit?usp=sharing) 
+
 ## Contributing
 
 This is a proprietary project by Batloon. For any queries or project requests, please contact our team at info@batloon.com.
