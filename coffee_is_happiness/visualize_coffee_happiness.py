@@ -59,12 +59,16 @@ def add_batloon_watermark(fig):
 # 1. Coffee Consumption World Map
 fig1 = go.Figure()
 
+# Filter data for high coffee consumption
+high_coffee_df = df[df['High_Coffee']].copy()
+high_coffee_df['z'] = 1
+
 fig1.add_trace(go.Choropleth(
-    locations=df['Country'],
+    locations=high_coffee_df['Country'],
     locationmode='country names',
-    z=df['High_Coffee'].astype(int),
-    text=df.apply(lambda x: f"{x['Country']}<br>Consumption: {x['Coffee_Consumption_Per_Capita_KG']:.2f} kg/capita<br>Category: {x['Coffee_Category']}", axis=1),
-    colorscale=[[0, COLORS['base']], [0.5, COLORS['base']], [0.5, COLORS['coffee_only']], [1, COLORS['coffee_only']]],
+    z=high_coffee_df['z'],
+    text=high_coffee_df.apply(lambda x: f"{x['Country']}<br>Consumption: {x['Coffee_Consumption_Per_Capita_KG']:.2f} kg/capita<br>Category: {x['Coffee_Category']}", axis=1),
+    colorscale=[[0, COLORS['coffee_only']], [1, COLORS['coffee_only']]],
     showscale=True,
     colorbar=dict(
         title=dict(
@@ -72,8 +76,8 @@ fig1.add_trace(go.Choropleth(
             side='top'
         ),
         ticks='outside',
-        ticktext=['Low', 'High'],
-        tickvals=[0, 1],
+        ticktext=['High'],
+        tickvals=[1],
         tickmode='array',
         thickness=20,
         len=0.3,
@@ -97,7 +101,7 @@ fig1.update_layout(
         showcoastlines=True,
         projection_type='equirectangular',
         showland=True,
-        landcolor='lightgray',
+        landcolor='white',
         showcountries=True,
         countrycolor='white'
     ),
@@ -114,12 +118,16 @@ fig1.write_html(f'{OUTPUT_DIR}/coffee_consumption_map.html')
 # 2. Happiness Score World Map
 fig2 = go.Figure()
 
+# Filter data for high happiness
+high_happiness_df = df[df['High_Happiness']].copy()
+high_happiness_df['z'] = 1
+
 fig2.add_trace(go.Choropleth(
-    locations=df['Country'],
+    locations=high_happiness_df['Country'],
     locationmode='country names',
-    z=df['High_Happiness'].astype(int),
-    text=df.apply(lambda x: f"{x['Country']}<br>Happiness Score: {x['Happiness_Score']:.2f}", axis=1),
-    colorscale=[[0, COLORS['base']], [0.5, COLORS['base']], [0.5, COLORS['happiness_only']], [1, COLORS['happiness_only']]],
+    z=high_happiness_df['z'],
+    text=high_happiness_df.apply(lambda x: f"{x['Country']}<br>Happiness Score: {x['Happiness_Score']:.2f}", axis=1),
+    colorscale=[[0, COLORS['happiness_only']], [1, COLORS['happiness_only']]],
     showscale=True,
     colorbar=dict(
         title=dict(
@@ -127,8 +135,8 @@ fig2.add_trace(go.Choropleth(
             side='top'
         ),
         ticks='outside',
-        ticktext=['Low', 'High'],
-        tickvals=[0, 1],
+        ticktext=['High'],
+        tickvals=[1],
         tickmode='array',
         thickness=20,
         len=0.3,
@@ -152,7 +160,7 @@ fig2.update_layout(
         showcoastlines=True,
         projection_type='equirectangular',
         showland=True,
-        landcolor='lightgray',
+        landcolor='white',
         showcountries=True,
         countrycolor='white'
     ),
@@ -202,12 +210,22 @@ fig3.add_trace(go.Scatter(
     showlegend=True
 ))
 
-# Add the choropleth layers
+# Add the choropleth layers for countries that meet criteria
+coffee_only_df = df[df['High_Coffee'] & ~df['High_Happiness']].copy()
+coffee_only_df['z'] = 1
+
+happiness_only_df = df[~df['High_Coffee'] & df['High_Happiness']].copy()
+happiness_only_df['z'] = 1
+
+intersection_df = df[df['Intersection']].copy()
+intersection_df['z'] = 1
+
+# Add coffee only countries
 fig3.add_trace(go.Choropleth(
-    locations=df[df['High_Coffee'] & ~df['High_Happiness']]['Country'],
+    locations=coffee_only_df['Country'],
     locationmode='country names',
-    z=[1] * len(df[df['High_Coffee'] & ~df['High_Happiness']]),
-    text=df[df['High_Coffee'] & ~df['High_Happiness']].apply(
+    z=coffee_only_df['z'],
+    text=coffee_only_df.apply(
         lambda x: f"{x['Country']}<br>Coffee: {x['Coffee_Consumption_Per_Capita_KG']:.2f} kg/capita<br>Happiness: {x['Happiness_Score']:.2f}", axis=1),
     colorscale=[[0, COLORS['coffee_only']], [1, COLORS['coffee_only']]],
     showscale=False,
@@ -215,11 +233,12 @@ fig3.add_trace(go.Choropleth(
     hoverinfo='text'
 ))
 
+# Add happiness only countries
 fig3.add_trace(go.Choropleth(
-    locations=df[~df['High_Coffee'] & df['High_Happiness']]['Country'],
+    locations=happiness_only_df['Country'],
     locationmode='country names',
-    z=[1] * len(df[~df['High_Coffee'] & df['High_Happiness']]),
-    text=df[~df['High_Coffee'] & df['High_Happiness']].apply(
+    z=happiness_only_df['z'],
+    text=happiness_only_df.apply(
         lambda x: f"{x['Country']}<br>Coffee: {x['Coffee_Consumption_Per_Capita_KG']:.2f} kg/capita<br>Happiness: {x['Happiness_Score']:.2f}", axis=1),
     colorscale=[[0, COLORS['happiness_only']], [1, COLORS['happiness_only']]],
     showscale=False,
@@ -227,11 +246,12 @@ fig3.add_trace(go.Choropleth(
     hoverinfo='text'
 ))
 
+# Add intersection countries
 fig3.add_trace(go.Choropleth(
-    locations=df[df['Intersection']]['Country'],
+    locations=intersection_df['Country'],
     locationmode='country names',
-    z=[1] * len(df[df['Intersection']]),
-    text=df[df['Intersection']].apply(
+    z=intersection_df['z'],
+    text=intersection_df.apply(
         lambda x: f"{x['Country']}<br>Coffee: {x['Coffee_Consumption_Per_Capita_KG']:.2f} kg/capita<br>Happiness: {x['Happiness_Score']:.2f}", axis=1),
     colorscale=[[0, COLORS['intersection']], [1, COLORS['intersection']]],
     showscale=False,
@@ -253,7 +273,7 @@ fig3.update_layout(
         showcoastlines=True,
         projection_type='equirectangular',
         showland=True,
-        landcolor='lightgray',
+        landcolor='white',
         showcountries=True,
         countrycolor='white'
     ),

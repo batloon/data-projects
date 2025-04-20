@@ -17,8 +17,8 @@ COFFEE_CATEGORIES = {
 }
 
 COLORS = {
-    'coffee_only': '#FDF3D7',     # Very Light Soft Yellow
-    'happiness_only': '#E1F0FB',  # Very Light Sky Blue
+    'coffee_only': '#F3E1B5',     # Very Light Soft Yellow
+    'happiness_only': '#C9E4F5',  # Very Light Sky Blue
     'intersection': '#B4E197',    # Fresh Leafy Green
     'base': '#F7F7F7'             # Very Light Gray
 }
