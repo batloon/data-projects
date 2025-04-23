@@ -14,6 +14,7 @@ Below is a comprehensive list of all data projects in this repository:
 
 | Project Name | Description | Category | Status | Documentation |
 |-|-|-|-|-|
+| Smartphone Brands Ranked By Active Use Score | Analyzing smartphone active use scores across different manufacturers and models. | Technology | In Progress | [README](https://github.com/batloon/data-projects/blob/main/smartphone_active_use_score/README.md) |
 | [Coffee is Happiness](https://www.batloon.com/articles/the-world-s-happiest-countries-also-love-their-coffee) | Exploring the relationship between coffee consumption and happiness across nations. | Society & Culture | Completed | [README](https://github.com/batloon/data-projects/blob/main/coffee_is_happiness/README.md) |
 
 ## Contact
