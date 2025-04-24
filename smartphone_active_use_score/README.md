@@ -1,4 +1,4 @@
-# Smartphone Active Use Score Analysis
+# [Battle of Smartphone Batteries](https://www.batloon.com/articles/battle-of-the-smartphone-batteries)
 
 This project analyzes smartphone active use scores across different manufacturers and models. The analysis includes trends over time, company comparisons, and other interesting insights about smartphone battery performance.
 
